@@ -11,17 +11,22 @@ import UIKit
 import Foundation
 import SpriteKit
 
+// this is the prize screen, if user gets 100 points it will bring them to the prize screen
 class EndGameScene: SKScene {
     
+    // global restartlabel so we can use it in other functions
     let restartLabel = SKLabelNode(fontNamed: "PixelHigh")
     
     override func didMove(to view: SKView) {
+        
+        // sets up backgruond
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)
         
+        // sets up congratulations label
         let congratulationsLabel = SKLabelNode(fontNamed: "PixelHigh")
         congratulationsLabel.text = "Congratulations!"
         congratulationsLabel.fontColor = SKColor.white
@@ -29,17 +34,8 @@ class EndGameScene: SKScene {
         congratulationsLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.70)
         congratulationsLabel.zPosition = 1
         self.addChild(congratulationsLabel)
-        
-        /**
-        let descriptionLabel = SKLabelNode(fontNamed: "Hey Comic")
-        descriptionLabel.text = "You have reached a score of 100! \nA feat that not a lot people can. \nYou should take pride in that. \nAs the first person to complete this game, \nhere is a $60 GameStop Gift Card"
-        descriptionLabel.fontColor = SKColor.white
-        descriptionLabel.fontSize = 50
-        descriptionLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.55)
-        descriptionLabel.zPosition = 1
-        self.addChild(descriptionLabel)*/
-        
-    
+
+        // sets up label for pin number of gift card
         let endGameLabel = SKLabelNode(fontNamed: "PixelHigh")
         endGameLabel.text = "6364 9110 0203 \n9933 187; \nPIN: 1695"
         endGameLabel.fontSize = 70
@@ -48,6 +44,8 @@ class EndGameScene: SKScene {
         endGameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.45)
         self.addChild(endGameLabel)
          
+        
+        // sets up restart label
         restartLabel.text = "Restart"
         restartLabel.fontSize = 100
         restartLabel.fontColor = SKColor.red
